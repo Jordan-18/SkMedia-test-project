@@ -32,13 +32,17 @@
             @include('components.footer')
         </div>
     </div>
+
+    
     <script src="{{url('/assets/vendors/perfect-scrollbar/perfect-scrollbar.min.js')}}"></script>
     <script src="{{url('/assets/js/bootstrap.bundle.min.js')}}"></script>
     
-<script src="{{url('/assets/vendors/apexcharts/apexcharts.js')}}"></script>
-<script src="{{url('/assets/js/pages/dashboard.js')}}"></script>
+    <script src="{{url('/assets/vendors/apexcharts/apexcharts.js')}}"></script>
+    <script src="{{url('/assets/js/pages/dashboard.js')}}"></script>
 
     <script src="{{url('/assets/js/mazer.js')}}"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
+    <script src="{{url('/assets/js/main.js')}}"></script>
 </body>
 
 </html>
