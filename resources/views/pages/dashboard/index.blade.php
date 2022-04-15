@@ -7,9 +7,11 @@
             <h3>Dashboard</h3>
         </div>
         <div class="col">
-            <div class="d-flex justify-content-end">
-                <a href="{{route('export-data')}}" type="button" class="btn btn-outline-primary">Export To Excel</a>
-            </div>
+            @auth
+                <div class="d-flex justify-content-end">
+                    <a href="{{route('export-data')}}" type="button" class="btn btn-outline-primary">Export To Excel</a>
+                </div>
+            @endauth
         </div>
       </div>
 </div>

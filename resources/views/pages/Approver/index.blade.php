@@ -57,7 +57,11 @@
                                                 @if ($order->status == "APPROVED 1")
                                                     {{-- biarkan kosong --}}
                                                 @else
-                                                    <button type="submit" name="Approve-action" value="approve1" class="btn btn-success rounded-pill" title="APPROVE"><i class="bi bi-check2-circle"></i></button>
+                                                    @if ($order->status == "APPROVED 2")
+                                                        {{-- biarkan kosong --}}
+                                                    @else
+                                                        <button type="submit" name="Approve-action" value="approve1" class="btn btn-success rounded-pill" title="APPROVE"><i class="bi bi-check2-circle"></i></button>
+                                                    @endif
                                                 @endif
                                             @endif
                                             
