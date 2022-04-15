@@ -9,6 +9,9 @@
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@300;400;600;700;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="{{url('/assets/css/bootstrap.css')}}">
+    {{-- highcharts --}}
+    <script src="https://code.highcharts.com/highcharts.js"></script>
+
     
 <link rel="stylesheet" href="{{url('/assets/vendors/iconly/bold.css')}}">
 
@@ -39,6 +42,9 @@
     
     <script src="{{url('/assets/vendors/apexcharts/apexcharts.js')}}"></script>
     <script src="{{url('/assets/js/pages/dashboard.js')}}"></script>
+
+    <script src="{{url('/assets/vendors/chartjs/Chart.min.js')}}"></script>
+    <script src="{{url('/assets/js/pages/ui-chartjs.js')}}"></script>
 
     <script src="{{url('/assets/js/mazer.js')}}"></script>
     <script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>

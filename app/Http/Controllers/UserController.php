@@ -9,25 +9,25 @@ class UserController extends Controller
 {
     public function index(){
         $user = User::query();
-        return view('pages.dashboard.user.index',[
+        return view('pages.user.index',[
             'users' => $user->orderBy('id', 'DESC')->paginate(5)->onEachSide(1)->withQueryString()
         ]);
     }
 
     public function create()
     {
-        return view('pages.dashboard.user.create');
+        return view('pages.user.create');
     }
 
     public function edit($slug){
         $user = User::query()->where('slug',$slug)->firstOrFail();
 
-        return view('pages.dashboard.user.edit',[
+        return view('pages.user.edit',[
             'user' => $user
         ]);
     }
 
-    public function store(Request $request, $id){
+    public function update(Request $request, $id){
 
         $validatedData = $request->validate([
             'name' => 'required|max:100',

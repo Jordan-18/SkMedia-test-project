@@ -17,6 +17,7 @@
                 <div class="card">
                     <div class="card-header">
                         <h4 class="card-title">Users</h4>
+                        <p>Result {{ $users->total()}} </p>
                     </div>
                     <div class="card-content">
                         <!-- table hover -->
@@ -50,6 +51,10 @@
                                     @endforeach
                                 </tbody>
                             </table>
+                        </div>
+                        
+                        <div class="d-flex justify-content-center mt-3">
+                            {{ $users->links() }}
                         </div>
                     </div>
                 </div>

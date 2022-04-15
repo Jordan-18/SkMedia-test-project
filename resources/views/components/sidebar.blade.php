@@ -50,18 +50,18 @@
                     </li>
                 </ul>
             </li>
-            <li class="sidebar-item">
-                <a href="" class='sidebar-link'>
+            <li class="sidebar-item {{ request()->is(['order','order/create']) ? 'active' : ''}}">
+                <a href="{{route('index-order')}}" class='sidebar-link'>
                     <i class="bi bi-truck"></i>
                     <span>Sewa Kendaraan</span>
                 </a>
             </li>
             @elseif (Auth::user()->roles == "APPROVER") 
             <li class="sidebar-item">
-                <a href="" class='sidebar-link'>
+                <a href="{{route('index-approver')}}" class='sidebar-link'>
                     <i class="bi bi-card-checklist"></i>
                     <span>Permintaan Persetujuan</span>
-                    <span class="badge bg-danger">99+</span>
+                    <span class="badge bg-danger">{{$pendingdatas}}</span>
                 </a>
             </li>
 

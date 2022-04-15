@@ -20,7 +20,7 @@
                     </div>
                     <div class="card-content">
                         <div class="card-body">
-                            <form action="{{route('store-user',$user->id)}}" class="form form-horizontal" method="POST">
+                            <form action="{{route('update-user',$user->id)}}" class="form form-horizontal" method="POST">
                                 @csrf
                                 @method('PUT')
                                 <div class="form-body">

@@ -1,8 +1,11 @@
 <?php
 
+use App\Http\Controllers\ApproverController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\FrontendController;
 use App\Http\Controllers\LoginController;
+use App\Http\Controllers\OrderController;
+use App\Http\Controllers\RentalController;
 use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Route;
 
@@ -30,6 +33,20 @@ Route::middleware(['auth:sanctum', 'verified','admin'])->group(function (){
     
     Route::get('/users',[UserController::class, 'index'])->name('users');
     Route::get('/user/{slug}',[UserController::class, 'edit'])->name('edit-user');
-    Route::put('/user/{id}', [UserController::class,'store'])->name('store-user');
+    Route::put('/user/{id}', [UserController::class,'update'])->name('update-user');
     Route::delete('/user/{id}',[UserController::class,'destroy'])->name('delete-user');
+
+    Route::get('/order',[OrderController::class,'index'])->name('index-order');
+    Route::get('/order/create',[OrderController::class,'create'])->name('create-order');
+
+    Route::post('/order/create',[OrderController::class, 'store'])->name('store-order');
+    Route::get('/order/edit/{id}', [OrderController::class, 'edit'])->name('edit-order');
+    Route::put('/order/edit/{id}', [OrderController::class, 'update'])->name('update-order');
+    Route::delete('/order/{id}',[OrderController::class,'destroy'])->name('delete-order');
+});
+
+Route::middleware(['auth:sanctum', 'verified'])->group(function (){
+    Route::get('/approver',[ApproverController::class,'index'])->name('index-approver');
+    Route::post('/approver/{id}',[ApproverController::class, 'action'])->name('action-approve');
+    Route::get('/approver/link/{id}',[ApproverController::class,'driverlink'])->name('driver-link');
 });

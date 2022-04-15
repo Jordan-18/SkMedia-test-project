@@ -16,8 +16,8 @@ return new class extends Migration
         Schema::create('drivers', function (Blueprint $table) {
             $table->id();
             $table->string('name');
-            $table->string('passworrd');
-            $table->string('Nomor-Hp');
+            $table->string('NomorHp');
+            $table->string('url');
             $table->timestamps();
         });
     }

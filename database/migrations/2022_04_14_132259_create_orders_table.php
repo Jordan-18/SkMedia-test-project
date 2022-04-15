@@ -15,12 +15,14 @@ return new class extends Migration
     {
         Schema::create('orders', function (Blueprint $table) {
             $table->id();
-            $table->bigInteger('id_pengaju');
+            $table->string('name');
+            $table->string('nomor');
+            $table->bigInteger('id_admin');
             $table->bigInteger('id_transport');
             $table->bigInteger('id_driver');
-            $table->bigInteger('id_penyetuju');
-            $table->dateTime('awal_pinjam');
-            $table->dateTime('akhir_pinjam')->nullable();
+            $table->bigInteger('id_approver');
+            $table->timestamp('awal_pinjam');
+            $table->timestamp('akhir_pinjam')->nullable();
             $table->integer('bbm_awal');
             $table->integer('bbm_akhir')->nullable();
             $table->string('status')->default('PENDING');
