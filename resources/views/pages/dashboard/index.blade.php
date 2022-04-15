@@ -8,7 +8,7 @@
         </div>
         <div class="col">
             <div class="d-flex justify-content-end">
-                <button type="button" class="btn btn-outline-primary">Export To Excel</button>
+                <a href="{{route('export-data')}}" type="button" class="btn btn-outline-primary">Export To Excel</a>
             </div>
         </div>
       </div>
@@ -78,8 +78,10 @@
                             <img src="https://img.icons8.com/color/344/conference-call--v2.png" alt="Face 1">
                         </div>
                         <div class="ms-3 name">
-                            <h5 class="font-bold">{{Auth::user()->name}}</h5>
-                            <h6 class="text-muted mb-0">{{Auth::user()->email}}</h6>
+                            @auth    
+                                <h5 class="font-bold">{{Auth::user()->name}}</h5>
+                                <h6 class="text-muted mb-0">{{Auth::user()->email}}</h6>
+                            @endauth
                         </div>
                     </div>
                 </div>

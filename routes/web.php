@@ -8,6 +8,7 @@ use App\Http\Controllers\OrderController;
 use App\Http\Controllers\RentalController;
 use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Route;
+use SebastianBergmann\CodeCoverage\Report\Html\Dashboard;
 
 /*
 |--------------------------------------------------------------------------
@@ -49,4 +50,6 @@ Route::middleware(['auth:sanctum', 'verified'])->group(function (){
     Route::get('/approver',[ApproverController::class,'index'])->name('index-approver');
     Route::post('/approver/{id}',[ApproverController::class, 'action'])->name('action-approve');
     Route::get('/approver/link/{id}',[ApproverController::class,'driverlink'])->name('driver-link');
+
+    Route::get('/data/export',[DashboardController::class,'exporttoexcel'])->name('export-data');
 });

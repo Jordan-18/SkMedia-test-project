@@ -18,11 +18,11 @@ class UserSeeder extends Seeder
     {
         $users = [
             [
-                'name' => 'Jordan Istiqlal',
-                'email' => 'jordanistiqlal18@gmail.com',
-                'roles' => 'APPROVER',
+                'name' => 'admin',
+                'email' => 'admin@gmail.com',
+                'roles' => 'ADMIN',
                 'password' => '$2y$10$IB0YqMdgcU9P5vtBpj92/.1MKgLd3Ci49RjLPyd486sHo/V/Kwo9y',
-                'slug' => 'jordan-istiqlal',
+                'slug' => 'admin',
                 'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
                 'updated_at' => Carbon::now()->format('Y-m-d H:i:s')
             ],
@@ -32,6 +32,24 @@ class UserSeeder extends Seeder
                 'roles' => 'ADMIN',
                 'password' => '$2y$10$kfVGCPRABAphozWlZcRQ0eL9mx46CBItVAAMt6udcPwIBT/XvWpwm',
                 'slug' => 'user',
+                'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
+                'updated_at' => Carbon::now()->format('Y-m-d H:i:s')
+            ],
+            [
+                'name' => 'tes',
+                'email' => 'tes@gmail.com',
+                'roles' => 'APPROVER',
+                'password' => '$2y$10$kfVGCPRABAphozWlZcRQ0eL9mx46CBItVAAMt6udcPwIBT/XvWpwm',
+                'slug' => 'tes',
+                'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
+                'updated_at' => Carbon::now()->format('Y-m-d H:i:s')
+            ],
+            [
+                'name' => 'sekawan',
+                'email' => 'sekawan@gmail.com',
+                'roles' => 'APPROVER',
+                'password' => '$2y$10$kfVGCPRABAphozWlZcRQ0eL9mx46CBItVAAMt6udcPwIBT/XvWpwm',
+                'slug' => 'sekawan',
                 'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
                 'updated_at' => Carbon::now()->format('Y-m-d H:i:s')
             ],

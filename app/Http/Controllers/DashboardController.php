@@ -2,9 +2,11 @@
 
 namespace App\Http\Controllers;
 
+use App\Exports\DataExport;
 use App\Models\Order;
 use App\Models\User;
 use Illuminate\Support\Facades\DB;
+use Maatwebsite\Excel\Facades\Excel;
 
 class DashboardController extends Controller
 {
@@ -29,5 +31,9 @@ class DashboardController extends Controller
         $admin = User::query()->where('roles','=','ADMIN')->count();
         $approver = User::query()->where('roles','=','APPROVER')->count();
         return view('pages.dashboard.index', compact('transports','drivers','admin','approver'));
+    }
+
+    public function exporttoexcel(){
+        return Excel::download(new DataExport, 'Order-Report.xlsx');
     }
 }

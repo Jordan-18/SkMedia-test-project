@@ -4,6 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Support\Facades\DB;
 
 class Order extends Model
 {
@@ -22,7 +23,6 @@ class Order extends Model
         'bbm_akhir', 
         'status', 
     ];
-
     public function idadmin(){
         return $this->hasOne(User::class,'id','id_admin');
     }
