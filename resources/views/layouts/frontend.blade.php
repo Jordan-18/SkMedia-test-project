@@ -13,7 +13,7 @@
     <script src="https://code.highcharts.com/highcharts.js"></script>
 
     
-<link rel="stylesheet" href="{{url('/assets/vendors/iconly/bold.css')}}">
+    <link rel="stylesheet" href="{{url('/assets/vendors/iconly/bold.css')}}">
 
     <link rel="stylesheet" href="{{url('/assets/vendors/perfect-scrollbar/perfect-scrollbar.css')}}">
     <link rel="stylesheet" href="{{url('/assets/vendors/bootstrap-icons/bootstrap-icons.css')}}">

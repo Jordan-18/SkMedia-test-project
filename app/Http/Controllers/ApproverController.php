@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Driver;
 use App\Models\Order;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Redirect;
 
 class ApproverController extends Controller
@@ -16,7 +17,7 @@ class ApproverController extends Controller
      */
     public function index()
     {
-        $orders = Order::with(['idadmin','idtransport','iddriver','idapprover'])->orderBy('id', 'DESC')->paginate(5)->onEachSide(1)->withQueryString();
+        $orders = Order::with(['idadmin','idtransport','iddriver','idapprover'])->where('status','!=','DONE')->where('id_approver','=',Auth::user()->id)->orderBy('id', 'DESC')->paginate(5)->onEachSide(1)->withQueryString();
         return view('pages.Approver.index',compact('orders'));
     }
 
@@ -58,6 +59,11 @@ class ApproverController extends Controller
             case 'delete':
                 $order->delete();
                 return back()->with('success','Order Dihapus');
+            case 'done':
+                $order->update([
+                    'status' => 'DONE'
+                ]);
+                return back()->with('success','Permintaan Sudah Selasai Terima Kasih atas partisipasinya');
         }
     }
 

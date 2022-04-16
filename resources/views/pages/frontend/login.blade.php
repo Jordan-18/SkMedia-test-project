@@ -15,6 +15,7 @@
 	<link rel="stylesheet" type="text/css" href="{{url('/assets/login/vendor/daterangepicker/daterangepicker.css')}}">
 	<link rel="stylesheet" type="text/css" href="{{url('/assets/login/css/util.css')}}">
 	<link rel="stylesheet" type="text/css" href="{{url('/assets/login/css/main.css')}}">
+	<link rel="stylesheet" href="{{url('/assets/css/bootstrap.css')}}">
 </head>
 <body>
     @if (session()->has('failed'))
@@ -61,6 +62,7 @@
 	</div>
 
 	<div id="dropDownSelect1"></div>
+	<script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
     <script src="{{url('/assets/js/main.js')}}"></script>
 </body>
 </html>

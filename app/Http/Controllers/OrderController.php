@@ -18,8 +18,7 @@ class OrderController extends Controller
      */
     public function index()
     {
-        $orders = Order::with(['idadmin','idtransport','iddriver','idapprover'])->orderBy('id', 'DESC')->paginate(5)->onEachSide(1)->withQueryString();
-
+        $orders = Order::with(['idadmin','idtransport','iddriver','idapprover'])->where('status','!=','DONE')->orderBy('id', 'DESC')->paginate(5)->onEachSide(1)->withQueryString();
         return view('pages.order.index', compact('orders'));
     }
 

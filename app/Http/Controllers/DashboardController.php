@@ -34,6 +34,6 @@ class DashboardController extends Controller
     }
 
     public function exporttoexcel(){
-        return Excel::download(new DataExport, 'Order-Report.xlsx');
+        return Excel::download(new DataExport, 'OrderReport.xlsx');
     }
 }

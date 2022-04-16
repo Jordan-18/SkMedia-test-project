@@ -54,6 +54,12 @@
                                             <button type="submit" class="btn btn-danger rounded-pill" title="DELETE"><i class="bi bi-trash2"></i></button>
                                             <a href="{{route('edit-order',$order->id)}}" class="btn btn-secondary rounded-pill" title="EDIT"><i class="bi bi-person-bounding-box"></i></i></a>
                                         </form>
+                                        @if ($order->status == "APPROVED 2")
+                                            <form action="{{route('action-approve',$order->id)}}" method="POST">
+                                                @csrf
+                                                <button type="submit" name="Approve-action" value="done" class="btn btn-success mt-1" title="DONE"><i class="bi bi-check2-all"></i> Done</button>
+                                            </form>
+                                        @endif
                                     </td>
                                 </tr>
                                 @endforeach
