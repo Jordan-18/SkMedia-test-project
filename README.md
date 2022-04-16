@@ -1,65 +1,102 @@
 <p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400"></a></p>
 
-<p align="center">
-<a href="https://travis-ci.org/laravel/framework"><img src="https://travis-ci.org/laravel/framework.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/dt/laravel/framework" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/v/laravel/framework" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
-</p>
+### Tentang Project
 
-## About Laravel
+Ini adalah Project untuk memenuhi tugas test Technical, yang membahas website aplikasi untuk dapat memonitoring  kendaraan yang terdapat pada suatu perusahaan tambang nikel yang memiliki enam tambang yang berbeda. 
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
+### Dasar Project
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
+- Terdapat 2 User(ADMIN,APPROVER)
+- Admin dapat menginput pemesanan  Kendaraan, Driver serta Approver
+- 2 level persetujuan
+- Dashboard Pemakaian Kendaraan
+- Export Excel
 
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
+### Tools
+Web Design
+- **[Mazer](https://github.com/zuramai/mazer)**
+- **[Login_v3](https://colorlib.com/wp/template/login-form-v3/)**
+- **[Bootstrap](https://getbootstrap.com/)**
 
-## Learning Laravel
+Framework & tools
+- **[PHP 8.0.11](https://www.php.net/)**
+- **[Laravel 9.8.1](https://laravel.com/)**
+- **[Laravel-excel^3.1](https://laravel-excel.com/)**
+- **[phpspreadsheet^1.18](https://phpspreadsheet.readthedocs.io/en/latest/)**
 
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework.
+Database 
+- **SQL**
 
-If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Laracasts contains over 2000 video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
+Account & Pass
+1. Admin
+- user-123
+- admin-123
 
-## Laravel Sponsors
+2. Approver
+- tes-123
+- sekawan-123
+### Step By Step
 
-We would like to extend our thanks to the following sponsors for funding Laravel development. If you are interested in becoming a sponsor, please visit the Laravel [Patreon page](https://patreon.com/taylorotwell).
+1. Pertama kita git clone dahulu repo ke komputer kita masing - masing.
 
-### Premium Partners
+```
+git clone https://github.com/Jordan-18/SkMedia-test-project.git
+```
 
-- **[Vehikl](https://vehikl.com/)**
-- **[Tighten Co.](https://tighten.co)**
-- **[Kirschbaum Development Group](https://kirschbaumdevelopment.com)**
-- **[64 Robots](https://64robots.com)**
-- **[Cubet Techno Labs](https://cubettech.com)**
-- **[Cyber-Duck](https://cyber-duck.co.uk)**
-- **[Many](https://www.many.co.uk)**
-- **[Webdock, Fast VPS Hosting](https://www.webdock.io/en)**
-- **[DevSquad](https://devsquad.com)**
-- **[Curotec](https://www.curotec.com/services/technologies/laravel/)**
-- **[OP.GG](https://op.gg)**
-- **[WebReinvent](https://webreinvent.com/?utm_source=laravel&utm_medium=github&utm_campaign=patreon-sponsors)**
-- **[Lendio](https://lendio.com)**
+2. Jika Repo Sudah Clone maka buka Repo yang telah di clone dan jalankan **composer update**
 
-## Contributing
+```
+composer update
+```
+langkah ini akan memakan sedikti waktu tergantung dari sinyal masing - masing.
 
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
+3. Jika composer sudah terupdate maka, mari kita atur .env untuk menginisialisai databasenya
+```
+DB_CONNECTION=mysql
+DB_HOST=127.0.0.1
+DB_PORT=3306
+DB_DATABASE=laravel
+DB_USERNAME=root
+DB_PASSWORD=
+```
+Jangan lupa buat juga database-nya didalam XAMPP
+4. jika sudah mengatur database maka mari jalankan
+```
+php artisan serve
+```
+Pada tahap ini kita akan diberi akses link 
+```
+http://127.0.0.1:8000/
+```
+dan jika buka akan adanya error key binding, lalu ikuti saja arahan dari laravel untuk mendapatkan key nya
 
-## Code of Conduct
+5. Tahap berikutnya kita lakukan migrasi dan juga seeder
+```
+php artisan migrate
+```
+```
+php artisan db:seed
+```
+### Flow Program
 
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
+#### **ERD**
+<p align="center"><a href="https://laravel.com" target="_blank"><img src="https://i.postimg.cc/dVznQr8M/ERD-sekawan.png"></a></p>
 
-## Security Vulnerabilities
+#### **ADMIN**
+- ADMIN mampu Membuat Pesanan Order Pemesanan.
+- Setiap Data yang dinput Oleh Admin akan mendapat **Status** PENDING yang akan di ubah oleh APPROVER
+- Jika semua persetujuan telah selesai maka selesai dan perpanjangan Penyewaan dilaksanakan oleh ADMIN
+- Jika **Status** telah Berubah menjadi APPROVED 2 maka ditampilan ADMIN akan muncul Tombol DONE jika sekiranya Pesanan telah Selesai.
 
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
+### **APPROVER**
+- APPROVER bertugas untuk mnyetujui pemintaan peminjaman.
+- **Status** memiliki beberapa tahapan antara lain :
+    - PENDING     = status dari ADMIN
+    - APPROVED 1  = status dari APPROVER
+    - APPROVED 2  = status dari Driver
+    - REJECT      = status dari APPROVER
+    - DONE        = status dari ADMIN
+- APPROVER juga bertugas untuk mengirimkan pesan melalui WA ke driver dengan menekan tombol biru setelah tombol approve di tekan
 
-## License
-
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
-# SkMedia-test-project
+### **DRIVER**
+- Jika APPROVER telah mengirim pesan ke Driver maka driver akan menerima sebuah link untuk menyetujui bahwasannya ia bersedia menjadi Driver Pada waktu yang telah ditentukan proses ini akan mengubah **Status** menjadi APPROVED 2
